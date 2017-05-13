@@ -16,11 +16,16 @@ Hero.prototype = {
   },
 
   eat: function(food){
+    
     if(this.favFood === food.name){
       this.health += ((food.replenishValue) * 1.5)
     }
     else{
       this.health += food.replenishValue
+    }
+    
+    if(this.health > 100){
+      this.health = 100
     }
   },
 

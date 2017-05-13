@@ -44,4 +44,10 @@ describe('Hero Test', function(){
     assert.equal(89.5, hero.health);
   });
 
+  it('should set health to 100 if over 100', function(){
+    hero.health = 90;
+    hero.eat(food2)
+    assert.equal(100, hero.health);
+  });  
+
 });
