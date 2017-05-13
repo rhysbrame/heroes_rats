@@ -16,5 +16,9 @@ describe('Food Test', function(){
     assert.equal(false, food1.contaminated);
   });
 
+  it('should be true once its been poisoned', function(){
+    food1.poison();
+    assert.equal(true, food1.contaminated);
+  });
 
 });
