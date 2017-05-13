@@ -4,7 +4,7 @@ var Task = function( params ){
   this.urgency = params.urgency; //out of 5
   this.maxReward = params.maxReward; //max 1000
   this.completed = false;
-}
+};
 
 Task.prototype = {
   completeTask: function(){
@@ -12,4 +12,5 @@ Task.prototype = {
   },
 
 };
+
 module.exports = Task;

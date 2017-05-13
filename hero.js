@@ -1,4 +1,4 @@
-var Hero = function( params ){
+var Hero = function(params){
   this.name = params.name;
   this.favFood = params.favFood;
   this.oneLiner = params.oneLiner
