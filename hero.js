@@ -1,3 +1,5 @@
+var _ = require('lodash')
+
 var Hero = function(params){
   this.name = params.name;
   this.favFood = params.favFood;
@@ -35,7 +37,40 @@ Hero.prototype = {
     }
   },
 
+  sortLevel: function(){
+    return _.sortBy(this.tasks, [function(task){
+      return task.level;
+    }]);
+  },
 
+  sortDifficulty: function(){
+    return _.sortBy(this.tasks, [function(task){
+      return task.difficulty;
+    }]);
+  },
+
+  sortUrgency: function(){
+    return _.sortBy(this.tasks, [function(task){
+      return task.urgency;
+    }]);
+  },
+
+  sortMaxReward: function(){
+    array = _.sortBy(this.tasks, [function(task){
+      return task.maxReward;
+    }])
+    return array.reverse();
+  },
 
 };
 module.exports = Hero;
+
+
+
+
+
+
+
+
+
+
