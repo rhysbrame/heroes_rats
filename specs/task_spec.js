@@ -18,4 +18,9 @@ describe('Task Test', function(){
     assert.equal( false, task5.completed);
   });
 
+  it('should have a true completeion when task is completed', function(){
+    task5.completeTask();
+    assert.equal( true, task5.completed);
+  });
+
 });
