@@ -16,17 +16,19 @@ Hero.prototype = {
   },
 
   eat: function(food){
-    
-    if(this.favFood === food.name){
-      this.health += ((food.replenishValue) * 1.5)
+    var change = 1;
+    if (food.contaminated === true){
+      change = -1;
     }
-    else{
-      this.health += food.replenishValue
+    else if (food.name === this.favFood){
+      change = 1.5
     }
-    
+    this.health += food.replenishValue * change
+
     if(this.health > 100){
       this.health = 100
     }
+
   },
 
 
