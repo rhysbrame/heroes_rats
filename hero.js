@@ -8,7 +8,7 @@ var Hero = function( params ){
 
 Hero.prototype = {
   talk: function(){
-    return "I am" + this.name + "  " + this.oneLiner;
+    return "I am " + this.name + ". " + this.oneLiner;
   },
 
 }

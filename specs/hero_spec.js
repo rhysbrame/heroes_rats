@@ -19,5 +19,10 @@ describe('Hero', function(){
 
   it('should have an empty array for tasks', function(){
     assert.equal( 0, hero.tasks.length);
+  });
+
+  it('should be able to say its tag line', function(){
+    console.log(hero.talk());
+    assert.equal("I am Mario. I used to be Jumpman!", hero.talk());
   })
 });
