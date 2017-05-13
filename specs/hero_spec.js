@@ -27,9 +27,10 @@ describe('Hero Test', function(){
     assert.equal("I am Mario. I used to be Jumpman!", hero.talk());
   });
 
-  // it('should have a task to do', function(){
-  //   // activate the tas in tasks
-  //   assert.equal( 1, hero.tasks.length);
-  // })
+  it('should have a task to do', function(){
+    var levelOne = new Task({ level: 1, difficulty: 1, urgency: 1, maxReward: 1000});
+    hero.addTask(levelOne);
+    assert.equal( 1, hero.tasks.length);
+  })
 
 });

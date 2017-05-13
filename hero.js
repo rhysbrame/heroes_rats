@@ -11,5 +11,10 @@ Hero.prototype = {
     return "I am " + this.name + ". " + this.oneLiner;
   },
 
+  addTask: function(task){
+    this.tasks.push(task)
+  },
+
+
 };
 module.exports = Hero;
