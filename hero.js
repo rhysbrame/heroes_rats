@@ -15,6 +15,15 @@ Hero.prototype = {
     this.tasks.push(task)
   },
 
+  eat: function(food){
+    if(this.favFood === food.name){
+      this.health += ((food.replenishValue) * 1.5)
+    }
+    else{
+      this.health += food.replenishValue
+    }
+  },
+
 
 };
 module.exports = Hero;

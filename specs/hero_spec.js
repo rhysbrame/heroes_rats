@@ -1,11 +1,14 @@
 var assert = require('assert');
 var Hero = require('../hero.js');
 var Task = require('../task.js');
+var Food = require('../food.js');
 
 describe('Hero Test', function(){
 
   beforeEach(function(){
     hero = new Hero({ name: "Mario", favFood: "Pizza", oneLiner: "I used to be Jumpman!"});
+    food1 = new Food({ name: "bread", replenishValue: 2});
+    food2 = new Food({ name: "Pizza", replenishValue: 25});
   });
 
   it('should have a name, favFood and oneLiner', function(){
@@ -31,6 +34,14 @@ describe('Hero Test', function(){
     var levelOne = new Task({ level: 1, difficulty: 1, urgency: 1, maxReward: 1000});
     hero.addTask(levelOne);
     assert.equal( 1, hero.tasks.length);
-  })
+  });
+
+  it('should replenish health when eats food or extra with favFood', function(){
+    hero.health = 50;
+    hero.eat(food1)
+    assert.equal(52, hero.health);
+    hero.eat(food2)
+    assert.equal(89.5, hero.health);
+  });
 
 });
