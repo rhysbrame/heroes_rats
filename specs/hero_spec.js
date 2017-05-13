@@ -13,5 +13,7 @@ describe('Hero', function(){
     assert.equal( "I used to be Jumpman!", hero.oneLiner);
   });
 
-
+  it('should have starting health of 100', function(){
+    assert.equal( 100, hero.health);
+  })
 });
