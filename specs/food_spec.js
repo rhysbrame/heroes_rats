@@ -12,5 +12,9 @@ describe('Food Test', function(){
     assert.equal(2, food1.replenishValue);
   });
 
+  it('should have uncontaminated food', function(){
+    assert.equal(false, food1.contaminated);
+  });
+
 
 });
