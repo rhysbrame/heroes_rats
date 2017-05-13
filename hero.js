@@ -62,15 +62,11 @@ Hero.prototype = {
     return array.reverse();
   },
 
+  listView: function(){
+    return _.filter(this.tasks, function(level) {
+      return !level.completed;
+    });
+  },
+
 };
 module.exports = Hero;
-
-
-
-
-
-
-
-
-
-

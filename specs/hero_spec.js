@@ -12,6 +12,8 @@ describe('Hero Test', function(){
     level1 = new Task({ level: 1, difficulty: 1, urgency: 1, maxReward: 1000});
     level27 = new Task({ level: 27, difficulty: 5, urgency: 8, maxReward: 2000});
     level34 = new Task({ level: 34, difficulty: 4, urgency: 2, maxReward: 5000});
+    level43 = new Task({ level: 43, difficulty: 8, urgency: 5, maxReward: 10000});
+    level50 = new Task({ level: 50, difficulty: 10, urgency: 4, maxReward: 25000});
   });
 
   it('should have a name, favFood and oneLiner', function(){
@@ -29,7 +31,6 @@ describe('Hero Test', function(){
   });
 
   it('should be able to say its tag line', function(){
-    console.log(hero.talk());
     assert.equal("I am Mario. I used to be Jumpman!", hero.talk());
   });
 
@@ -83,58 +84,61 @@ describe('Hero Test', function(){
     assert.deepEqual( [1, 27, 34] , levels)
   });
 
-it('should sort array by difficulty', function(){
-    hero.addTask( level1 );
-    hero.addTask( level27 );
-    hero.addTask( level34 );
-    assert.equal( 3, hero.tasks.length);
-    
-    var levels = (hero.sortDifficulty()).map(function(task){
-      return task.level
+  it('should sort array by difficulty', function(){
+      hero.addTask( level1 );
+      hero.addTask( level27 );
+      hero.addTask( level34 );
+      assert.equal( 3, hero.tasks.length);
+      
+      var levels = (hero.sortDifficulty()).map(function(task){
+        return task.level
+      });
+      
+      assert.deepEqual( [1, 34, 27] , levels)
     });
-    
-    assert.deepEqual( [1, 34, 27] , levels)
-  });
 
-it('should sort array by urgency', function(){
-    hero.addTask( level1 );
-    hero.addTask( level27 );
-    hero.addTask( level34 );
-    assert.equal( 3, hero.tasks.length);
-    
-    var levels = (hero.sortUrgency()).map(function(task){
-      return task.level
+  it('should sort array by urgency', function(){
+      hero.addTask( level1 );
+      hero.addTask( level27 );
+      hero.addTask( level34 );
+      assert.equal( 3, hero.tasks.length);
+      
+      var levels = (hero.sortUrgency()).map(function(task){
+        return task.level
+      });
+      
+      assert.deepEqual( [1, 34, 27] , levels)
     });
-    
-    assert.deepEqual( [1, 34, 27] , levels)
-  });
 
-it('should sort array by maxReward', function(){
-    hero.addTask( level1 );
-    hero.addTask( level27 );
-    hero.addTask( level34 );
-    assert.equal( 3, hero.tasks.length);
+  it('should sort array by maxReward', function(){
+      hero.addTask( level1 );
+      hero.addTask( level27 );
+      hero.addTask( level34 );
+      assert.equal( 3, hero.tasks.length);
+      
+      var levels = (hero.sortMaxReward()).map(function(task){
+        return task.level
+      });
+      
+      assert.deepEqual( [34, 27, 1] , levels)
+    });
+
+  it('should show levels to be completed', function(){
+    level1.completeTask();
+      hero.addTask( level1 );
+    level27.completeTask();
+      hero.addTask( level27 );
+    level34.completeTask();
+      hero.addTask( level34 );
+      hero.addTask( level43 );
+      hero.addTask( level50 );
+    assert.equal( 5, hero.tasks.length);
     
-    var levels = (hero.sortMaxReward()).map(function(task){
+    var levels = (hero.listView()).map(function(task){
       return task.level
     });
-    
-    assert.deepEqual( [34, 27, 1] , levels)
+
+    assert.deepEqual( [43,50] , levels)
   });
 
 });
-
-
-
-// var vals = testArray.map(function(a) {return a.val;});
-
-
-
-
-
-
-
-
-
-
-
