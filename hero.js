@@ -11,6 +11,5 @@ Hero.prototype = {
     return "I am " + this.name + ". " + this.oneLiner;
   },
 
-}
-
+};
 module.exports = Hero;

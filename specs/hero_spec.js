@@ -1,5 +1,6 @@
 var assert = require('assert');
 var Hero = require('../hero.js');
+var Tasks = require('../task.js');
 
 describe('Hero', function(){
 
@@ -24,5 +25,11 @@ describe('Hero', function(){
   it('should be able to say its tag line', function(){
     console.log(hero.talk());
     assert.equal("I am Mario. I used to be Jumpman!", hero.talk());
+  });
+
+  it('should have a task to do', function(){
+    // activate the tas in tasks
+    assert.equal( 1, hero.tasks.length);
   })
+
 });
