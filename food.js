@@ -11,4 +11,4 @@ Food.prototype = {
 
 };
 
-module.exports = Food
+module.exports = Food;
