@@ -8,7 +8,7 @@ describe('Hero Test', function(){
   beforeEach(function(){
     hero = new Hero({ name: "Mario", favFood: "Pizza", oneLiner: "I used to be Jumpman!"});
     food1 = new Food({ name: "bread", replenishValue: 2});
-    food2 = new Food({ name: "Pizza", replenishValue: 25});
+    food2 = new Food({ name: "Pizza", replenishValue: 20});
   });
 
   it('should have a name, favFood and oneLiner', function(){
@@ -36,18 +36,51 @@ describe('Hero Test', function(){
     assert.equal( 1, hero.tasks.length);
   });
 
-  it('should replenish health when eats food or extra with favFood', function(){
+  it('should replenish health when eats food', function(){
     hero.health = 50;
     hero.eat(food1)
     assert.equal(52, hero.health);
+  });
+
+  it('should replenish health when eats favfood', function(){
+    hero.health = 50;
     hero.eat(food2)
-    assert.equal(89.5, hero.health);
+    assert.equal(80, hero.health);
   });
 
   it('should set health to 100 if over 100', function(){
     hero.health = 90;
     hero.eat(food2)
     assert.equal(100, hero.health);
-  });  
+  });
+
+  it('should decrease health when food contaminated', function(){
+    hero.health = 50;
+    food1.contaminated = true;
+    hero.eat(food1)
+    assert.equal(48, hero.health);
+  }) 
+
+  it('should decrease health when favfood contaminated', function(){
+    hero.health = 50
+    food2.contaminated = true;
+    hero.eat(food2)
+    assert.equal(20, hero.health);
+  })   
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
