@@ -1,8 +1,8 @@
 var assert = require('assert');
 var Hero = require('../hero.js');
-var Tasks = require('../task.js');
+var Task = require('../task.js');
 
-describe('Hero', function(){
+describe('Hero Test', function(){
 
   beforeEach(function(){
     hero = new Hero({ name: "Mario", favFood: "Pizza", oneLiner: "I used to be Jumpman!"});
@@ -27,9 +27,9 @@ describe('Hero', function(){
     assert.equal("I am Mario. I used to be Jumpman!", hero.talk());
   });
 
-  it('should have a task to do', function(){
-    // activate the tas in tasks
-    assert.equal( 1, hero.tasks.length);
-  })
+  // it('should have a task to do', function(){
+  //   // activate the tas in tasks
+  //   assert.equal( 1, hero.tasks.length);
+  // })
 
 });
